@@ -167,10 +167,6 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HUNQAFIL
 
-[GeneratedDocument1]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\Design Rule Check - ESP32SSMB V1.html
-DItemRevisionGUID=
-
 [Configuration1]
 Name=Sources
 ParameterCount=0
