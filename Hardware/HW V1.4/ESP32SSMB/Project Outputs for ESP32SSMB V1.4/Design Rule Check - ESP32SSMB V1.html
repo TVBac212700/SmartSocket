@@ -1,0 +1,528 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD23\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">4/3/2025</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">8:47:54 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc" class="file"><acronym title="D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc">D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">64</td></tr>
+</table>
+</td>
+</table><a name="IDYTHRXWVKWS0GJKB1TNOPHOCALHFLLH2INEME2OLL2I1JDQOAK1"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIJILSYMXUZYJHHJADMYBXRWWCEWENQJC3UKHVMCZTG3B0N5ILP5I">Clearance Constraint (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGCYWYCAFKB0WG5XYS5LBM0QMHNZ0U1TQM5COWZKRXZAEJMXCXP0F">Clearance Constraint (Gap=0.1mm) (InNetClass('POWER')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIW2OOJST2AR1NGCVOE0E0PKNZCMV5QF20Y3RQIPVOJPD3KVG0UVB">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHJ12IJBNMAW5CR0VK2S4QMAF5BCQCEBZCB2MREYERIEAQFFPO5J">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMW4RTW2Z0DULBBPMXBFAMXD2OK0SB4OME4KCJZO2IRBZUKTGQ5MF">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHHX2GJZ2VJQ1ICEOFN430BWZ5FXRM3LLNXPEKVENTYP5PSWBGAFM">Width Constraint (Min=0.15mm) (Max=2mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDTJ3CHWS1BYSCEYVY2SYGEG5XF5EJI2O4NKWBJE3ZLI0SUVOBM1">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCUXOKGXEUEGRLKY25Q2WWHPIXIMXZ3OQRN2WMOL1TV1FVYOHJ2FN">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYF203FRODXP3IGBCNOLJ0Q1WBIXAXOOXLUDA0HDZLPCIV0JGFVF">Hole To Hole Clearance (Gap=0.05mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDS4FYQIVXYKFQIRHC2QBPJBTOOLYEWMRWM3HAVRMG2E04NW5UIYSC">Minimum Solder Mask Sliver (Gap=0.05mm) (All),(All)</a></td>
+<td class="column2">12</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJGVMJJICAXUHPJEF0AEGOMC1TBUHOIPELKB1IC3GGY10B35LHXE">Silk To Solder Mask (Clearance=0.05mm) (IsPad),(All)</a></td>
+<td class="column2">52</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDX4SULRTCSPK3PZC0MKBXYZFCYN53OP5RZKLLAEHIRBUP4BNQ54OH">Silk to Silk (Clearance=0.05mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2I1L12FWY2NJP5K3KJMBONBT54CIGKDMQNMD3GVNZPKPZ33NIKG">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGJKRY5TEBYK1IJZ0RHDGVO0WEIXPP3XUIEFHL4FJW15X5ZK14X4P">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">64</td>
+</tr>
+</table><br><a name="IDS4FYQIVXYKFQIRHC2QBPJBTOOLYEWMRWM3HAVRMG2E04NW5UIYSC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.05mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3533.391mil|Location2.X=3536.609mil|Location1.Y=5971.784mil|Location2.Y=5975.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3533.391mil|Location2.X=3536.609mil|Location1.Y=5971.784mil|Location2.Y=5975.003mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.05mm) Between Pad C1-1(22.454mm,16.249mm) on Top Layer And Pad C3-1(21.438mm,16.249mm) on Top Layer [Top Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3533.391mil|Location2.X=3536.609mil|Location1.Y=5904.855mil|Location2.Y=5908.074mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3533.391mil|Location2.X=3536.609mil|Location1.Y=5904.855mil|Location2.Y=5908.074mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.05mm) Between Pad C1-2(22.454mm,14.549mm) on Top Layer And Pad C3-2(21.438mm,14.549mm) on Top Layer [Top Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2593.084mil|Location2.X=2596.302mil|Location1.Y=5627.925mil|Location2.Y=5631.143mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2593.084mil|Location2.X=2596.302mil|Location1.Y=5627.925mil|Location2.Y=5631.143mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.018mm &lt; 0.05mm) Between Pad C2-2(-1.473mm,8.624mm) on Top Layer And Pad R1-1(-1.473mm,7.622mm) on Top Layer [Top Solder] Mask Sliver [0.018mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4097.504mil|Location2.X=4100.722mil|Location1.Y=5555.83mil|Location2.Y=5559.049mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4097.504mil|Location2.X=4100.722mil|Location1.Y=5555.83mil|Location2.Y=5559.049mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.05mm) Between Pad D1-1(35.773mm,6.795mm) on Top Layer And Pad D4-1(35.773mm,5.673mm) on Top Layer [Top Solder] Mask Sliver [0.02mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4164.433mil|Location2.X=4167.651mil|Location1.Y=5555.83mil|Location2.Y=5559.049mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4164.433mil|Location2.X=4167.651mil|Location1.Y=5555.83mil|Location2.Y=5559.049mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.05mm) Between Pad D1-2(37.473mm,6.795mm) on Top Layer And Pad D4-2(37.473mm,5.673mm) on Top Layer [Top Solder] Mask Sliver [0.02mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2783.391mil|Location2.X=2786.609mil|Location1.Y=5564.125mil|Location2.Y=5567.343mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2783.391mil|Location2.X=2786.609mil|Location1.Y=5564.125mil|Location2.Y=5567.343mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.05mm) Between Pad D2-1(3.454mm,6.946mm) on Top Layer And Pad D3-1(2.337mm,6.946mm) on Top Layer [Top Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2783.391mil|Location2.X=2786.609mil|Location1.Y=5497.196mil|Location2.Y=5500.414mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2783.391mil|Location2.X=2786.609mil|Location1.Y=5497.196mil|Location2.Y=5500.414mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.016mm &lt; 0.05mm) Between Pad D2-2(3.454mm,5.246mm) on Top Layer And Pad D3-2(2.337mm,5.246mm) on Top Layer [Top Solder] Mask Sliver [0.016mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4097.504mil|Location2.X=4100.722mil|Location1.Y=5511.654mil|Location2.Y=5514.873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4097.504mil|Location2.X=4100.722mil|Location1.Y=5511.654mil|Location2.Y=5514.873mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.05mm) Between Pad D4-1(35.773mm,5.673mm) on Top Layer And Pad D5-1(35.773mm,4.551mm) on Top Layer [Top Solder] Mask Sliver [0.02mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4164.433mil|Location2.X=4167.651mil|Location1.Y=5511.654mil|Location2.Y=5514.873mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4164.433mil|Location2.X=4167.651mil|Location1.Y=5511.654mil|Location2.Y=5514.873mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.05mm) Between Pad D4-2(37.473mm,5.673mm) on Top Layer And Pad D5-2(37.473mm,4.551mm) on Top Layer [Top Solder] Mask Sliver [0.02mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4058.074mil|Location2.X=4061.292mil|Location1.Y=5467.479mil|Location2.Y=5470.697mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4058.074mil|Location2.X=4061.292mil|Location1.Y=5467.479mil|Location2.Y=5470.697mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.05mm) Between Pad D5-1(35.773mm,4.551mm) on Top Layer And Pad D6-1(35.773mm,3.429mm) on Top Layer [Top Solder] Mask Sliver [0.02mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4125.003mil|Location2.X=4128.221mil|Location1.Y=5467.479mil|Location2.Y=5470.697mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4125.003mil|Location2.X=4128.221mil|Location1.Y=5467.479mil|Location2.Y=5470.697mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.02mm &lt; 0.05mm) Between Pad D5-2(37.473mm,4.551mm) on Top Layer And Pad D6-2(37.473mm,3.429mm) on Top Layer [Top Solder] Mask Sliver [0.02mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2500.239mil|Location2.X=2503.458mil|Location1.Y=5415.148mil|Location2.Y=5418.366mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2500.239mil|Location2.X=2503.458mil|Location1.Y=5415.148mil|Location2.Y=5418.366mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.035mm &lt; 0.05mm) Between Pad J3-SHIELD(-3.665mm,2.081mm) on Multi-Layer And Pad SW3-1(-4.747mm,3.378mm) on Top Layer [Top Solder] Mask Sliver [0.035mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDJGVMJJICAXUHPJEF0AEGOMC1TBUHOIPELKB1IC3GGY10B35LHXE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.05mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2649.805mil|Location2.X=2652.117mil|Location1.Y=5343.844mil|Location2.Y=5346.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2649.805mil|Location2.X=2652.117mil|Location1.Y=5343.844mil|Location2.Y=5346.156mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (-1.009mm,0.838mm) on Bottom Overlay And Pad TP10-1(-1.009mm,0.838mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2745.332mil|Location2.X=2747.644mil|Location1.Y=5803.608mil|Location2.Y=5805.92mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2745.332mil|Location2.X=2747.644mil|Location1.Y=5803.608mil|Location2.Y=5805.92mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (1.917mm,12.566mm) on Top Overlay And Pad C22-1(1.729mm,12.319mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2745.332mil|Location2.X=2747.644mil|Location1.Y=5807.545mil|Location2.Y=5809.857mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2745.332mil|Location2.X=2747.644mil|Location1.Y=5807.545mil|Location2.Y=5809.857mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (1.917mm,12.566mm) on Top Overlay And Pad C22-1(1.729mm,12.319mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3405.537mil|Location2.X=3407.849mil|Location1.Y=5753.411mil|Location2.Y=5755.723mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3405.537mil|Location2.X=3407.849mil|Location1.Y=5753.411mil|Location2.Y=5755.723mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (18.187mm,11.241mm) on Bottom Overlay And Pad TP11-1(18.187mm,11.241mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3452.359mil|Location2.X=3455.578mil|Location1.Y=5537.997mil|Location2.Y=5541.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3452.359mil|Location2.X=3455.578mil|Location1.Y=5537.997mil|Location2.Y=5541.216mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.04mm &lt; 0.05mm) Between Arc (19.887mm,5.561mm) on Top Overlay And Pad C6-2(20.015mm,6.351mm) on Top Layer [Top Overlay] to [Top Solder] clearance [0.04mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2560.277mil|Location2.X=2562.589mil|Location1.Y=5744.639mil|Location2.Y=5746.951mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2560.277mil|Location2.X=2562.589mil|Location1.Y=5744.639mil|Location2.Y=5746.951mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (-2.883mm,11.018mm) on Top Overlay And Pad J3-SHIELD(-3.665mm,10.721mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3742.994mil|Location2.X=3745.306mil|Location1.Y=5506.844mil|Location2.Y=5509.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3742.994mil|Location2.X=3745.306mil|Location1.Y=5506.844mil|Location2.Y=5509.156mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (26.758mm,4.978mm) on Bottom Overlay And Pad TP6-1(26.758mm,4.978mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3805.6mil|Location2.X=3807.912mil|Location1.Y=5506.844mil|Location2.Y=5509.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3805.6mil|Location2.X=3807.912mil|Location1.Y=5506.844mil|Location2.Y=5509.156mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (28.348mm,4.978mm) on Bottom Overlay And Pad TP7-1(28.348mm,4.978mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2820.529mil|Location2.X=2822.841mil|Location1.Y=5856.757mil|Location2.Y=5859.069mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2820.529mil|Location2.X=2822.841mil|Location1.Y=5856.757mil|Location2.Y=5859.069mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (3.327mm,13.866mm) on Bottom Overlay And Pad TP4-1(3.327mm,13.866mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3984.978mil|Location2.X=3987.29mil|Location1.Y=5373.844mil|Location2.Y=5376.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3984.978mil|Location2.X=3987.29mil|Location1.Y=5373.844mil|Location2.Y=5376.156mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (32.904mm,1.6mm) on Bottom Overlay And Pad TP8-1(32.904mm,1.6mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4058.529mil|Location2.X=4060.841mil|Location1.Y=5373.844mil|Location2.Y=5376.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4058.529mil|Location2.X=4060.841mil|Location1.Y=5373.844mil|Location2.Y=5376.156mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (34.773mm,1.6mm) on Bottom Overlay And Pad TP9-1(34.773mm,1.6mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4141.364mil|Location2.X=4143.676mil|Location1.Y=5998.891mil|Location2.Y=6001.203mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4141.364mil|Location2.X=4143.676mil|Location1.Y=5998.891mil|Location2.Y=6001.203mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (36.877mm,17.476mm) on Bottom Overlay And Pad TP1-1(36.877mm,17.476mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2870.529mil|Location2.X=2872.841mil|Location1.Y=5856.757mil|Location2.Y=5859.069mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2870.529mil|Location2.X=2872.841mil|Location1.Y=5856.757mil|Location2.Y=5859.069mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (4.597mm,13.866mm) on Bottom Overlay And Pad TP12-1(4.597mm,13.866mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2920.529mil|Location2.X=2922.841mil|Location1.Y=6545.734mil|Location2.Y=6548.046mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2920.529mil|Location2.X=2922.841mil|Location1.Y=6545.734mil|Location2.Y=6548.046mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (5.867mm,31.366mm) on Bottom Overlay And Pad TP2-1(5.867mm,31.366mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2970.529mil|Location2.X=2972.841mil|Location1.Y=6545.734mil|Location2.Y=6548.046mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2970.529mil|Location2.X=2972.841mil|Location1.Y=6545.734mil|Location2.Y=6548.046mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Arc (7.137mm,31.366mm) on Bottom Overlay And Pad TP3-1(7.137mm,31.366mm) on Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3927.044mil|Location2.X=3930.263mil|Location1.Y=5313.533mil|Location2.Y=5316.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3927.044mil|Location2.X=3930.263mil|Location1.Y=5313.533mil|Location2.Y=5316.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.009mm &lt; 0.05mm) Between Pad C16-1(31.394mm,0.584mm) on Top Layer And Track (0mm,0.025mm)(37.389mm,0.025mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.009mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3927.327mil|Location2.X=3933.657mil|Location1.Y=5350.735mil|Location2.Y=5356.633mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3927.327mil|Location2.X=3933.657mil|Location1.Y=5350.735mil|Location2.Y=5356.633mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.022mm &lt; 0.05mm) Between Pad C16-1(31.394mm,0.584mm) on Top Layer And Track (31.999mm,1.15mm)(32.299mm,1.15mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3993.974mil|Location2.X=3997.192mil|Location1.Y=5313.533mil|Location2.Y=5316.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3993.974mil|Location2.X=3997.192mil|Location1.Y=5313.533mil|Location2.Y=5316.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.009mm &lt; 0.05mm) Between Pad C16-2(33.094mm,0.584mm) on Top Layer And Track (0mm,0.025mm)(37.389mm,0.025mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.009mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.044mil|Location2.X=4130.263mil|Location1.Y=5313.533mil|Location2.Y=5316.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.044mil|Location2.X=4130.263mil|Location1.Y=5313.533mil|Location2.Y=5316.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.009mm &lt; 0.05mm) Between Pad C18-1(36.474mm,0.584mm) on Top Layer And Track (0mm,0.025mm)(37.389mm,0.025mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.009mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.115mil|Location2.X=4063.334mil|Location1.Y=5313.533mil|Location2.Y=5316.751mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.115mil|Location2.X=4063.334mil|Location1.Y=5313.533mil|Location2.Y=5316.751mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.009mm &lt; 0.05mm) Between Pad C18-2(34.774mm,0.584mm) on Top Layer And Track (0mm,0.025mm)(37.389mm,0.025mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.009mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.398mil|Location2.X=4066.727mil|Location1.Y=5350.735mil|Location2.Y=5356.633mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.398mil|Location2.X=4066.727mil|Location1.Y=5350.735mil|Location2.Y=5356.633mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.022mm &lt; 0.05mm) Between Pad C18-2(34.774mm,0.584mm) on Top Layer And Track (35.379mm,1.15mm)(35.679mm,1.15mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.022mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5562.542mil|Location2.Y=5564.854mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5562.542mil|Location2.Y=5564.854mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D1-1(35.773mm,6.795mm) on Top Layer And Track (35.083mm,6.393mm)(36.323mm,6.393mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5562.935mil|Location2.Y=5565.248mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5562.935mil|Location2.Y=5565.248mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D1-2(37.473mm,6.795mm) on Top Layer And Track (36.993mm,6.403mm)(38.143mm,6.403mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.19mil|Location2.X=2792.502mil|Location1.Y=5566.578mil|Location2.Y=5568.89mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.19mil|Location2.X=2792.502mil|Location1.Y=5566.578mil|Location2.Y=5568.89mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D2-1(3.454mm,6.946mm) on Top Layer And Track (3.057mm,6.396mm)(3.057mm,7.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.584mil|Location2.X=2792.896mil|Location1.Y=5499.649mil|Location2.Y=5501.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.584mil|Location2.X=2792.896mil|Location1.Y=5499.649mil|Location2.Y=5501.961mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D2-2(3.454mm,5.246mm) on Top Layer And Track (3.067mm,4.576mm)(3.067mm,5.726mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.104mil|Location2.X=2779.416mil|Location1.Y=5566.578mil|Location2.Y=5568.89mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.104mil|Location2.X=2779.416mil|Location1.Y=5566.578mil|Location2.Y=5568.89mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D3-1(2.337mm,6.946mm) on Top Layer And Track (2.724mm,6.396mm)(2.724mm,7.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.498mil|Location2.X=2779.81mil|Location1.Y=5499.649mil|Location2.Y=5501.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.498mil|Location2.X=2779.81mil|Location1.Y=5499.649mil|Location2.Y=5501.961mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D3-2(2.337mm,5.246mm) on Top Layer And Track (2.734mm,4.576mm)(2.734mm,5.776mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5518.366mil|Location2.Y=5520.678mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5518.366mil|Location2.Y=5520.678mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D4-1(35.773mm,5.673mm) on Top Layer And Track (35.083mm,5.271mm)(36.323mm,5.271mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5549.631mil|Location2.Y=5551.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5549.631mil|Location2.Y=5551.944mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D4-1(35.773mm,5.673mm) on Top Layer And Track (35.083mm,6.065mm)(36.323mm,6.065mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5550.025mil|Location2.Y=5552.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5550.025mil|Location2.Y=5552.337mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D4-2(37.473mm,5.673mm) on Top Layer And Track (36.943mm,6.075mm)(38.143mm,6.075mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5518.76mil|Location2.Y=5521.072mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5518.76mil|Location2.Y=5521.072mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D4-2(37.473mm,5.673mm) on Top Layer And Track (36.993mm,5.281mm)(38.143mm,5.281mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5474.19mil|Location2.Y=5476.502mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5474.19mil|Location2.Y=5476.502mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D5-1(35.773mm,4.551mm) on Top Layer And Track (35.083mm,4.149mm)(36.323mm,4.149mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5505.456mil|Location2.Y=5507.768mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5505.456mil|Location2.Y=5507.768mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D5-1(35.773mm,4.551mm) on Top Layer And Track (35.083mm,4.943mm)(36.323mm,4.943mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5505.85mil|Location2.Y=5508.162mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5505.85mil|Location2.Y=5508.162mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D5-2(37.473mm,4.551mm) on Top Layer And Track (36.943mm,4.953mm)(38.143mm,4.953mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5474.584mil|Location2.Y=5476.896mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5474.584mil|Location2.Y=5476.896mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D5-2(37.473mm,4.551mm) on Top Layer And Track (36.993mm,4.159mm)(38.143mm,4.159mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5461.28mil|Location2.Y=5463.592mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4060.527mil|Location2.X=4062.839mil|Location1.Y=5461.28mil|Location2.Y=5463.592mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D6-1(35.773mm,3.429mm) on Top Layer And Track (35.083mm,3.821mm)(36.323mm,3.821mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5461.674mil|Location2.Y=5463.986mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4127.456mil|Location2.X=4129.768mil|Location1.Y=5461.674mil|Location2.Y=5463.986mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad D6-2(37.473mm,3.429mm) on Top Layer And Track (36.943mm,3.831mm)(38.143mm,3.831mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2655.721mil|Location2.X=2658.033mil|Location1.Y=5374.946mil|Location2.Y=5377.258mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2655.721mil|Location2.X=2658.033mil|Location1.Y=5374.946mil|Location2.Y=5377.258mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad J3-SHIELD(0.335mm,2.081mm) on Multi-Layer And Track (-4.497mm,1.628mm)(1.503mm,1.628mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2492.781mil|Location2.X=2495.093mil|Location1.Y=5374.946mil|Location2.Y=5377.258mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2492.781mil|Location2.X=2495.093mil|Location1.Y=5374.946mil|Location2.Y=5377.258mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad J3-SHIELD(-3.665mm,2.081mm) on Multi-Layer And Track (-4.497mm,1.628mm)(1.503mm,1.628mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2492.781mil|Location2.X=2495.093mil|Location1.Y=5375.701mil|Location2.Y=5378.013mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2492.781mil|Location2.X=2495.093mil|Location1.Y=5375.701mil|Location2.Y=5378.013mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad J3-SHIELD(-3.665mm,2.081mm) on Multi-Layer And Track (-4.497mm,1.628mm)(-4.497mm,2.365mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3786.537mil|Location2.X=3788.849mil|Location1.Y=5311.844mil|Location2.Y=5314.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3786.537mil|Location2.X=3788.849mil|Location1.Y=5311.844mil|Location2.Y=5314.156mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R13-1(28.829mm,0.211mm) on Top Layer And Track (0mm,0.025mm)(37.389mm,0.025mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2974.817mil|Location2.X=2977.129mil|Location1.Y=5507.364mil|Location2.Y=5509.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2974.817mil|Location2.X=2977.129mil|Location1.Y=5507.364mil|Location2.Y=5509.676mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R18-2(8.211mm,5.196mm) on Top Layer And Track (7.094mm,4.992mm)(18.494mm,4.992mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2949.151mil|Location2.X=2951.463mil|Location1.Y=5507.364mil|Location2.Y=5509.676mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2949.151mil|Location2.X=2951.463mil|Location1.Y=5507.364mil|Location2.Y=5509.676mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R20-2(7.108mm,5.196mm) on Top Layer And Track (7.094mm,4.992mm)(18.494mm,4.992mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4068.596mil|Location2.X=4070.908mil|Location1.Y=5606.717mil|Location2.Y=5609.029mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4068.596mil|Location2.X=4070.908mil|Location1.Y=5606.717mil|Location2.Y=5609.029mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R2-1(35.963mm,7.899mm) on Top Layer And Track (35.083mm,7.515mm)(36.323mm,7.515mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4128.045mil|Location2.X=4130.357mil|Location1.Y=5607.111mil|Location2.Y=5609.423mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4128.045mil|Location2.X=4130.357mil|Location1.Y=5607.111mil|Location2.Y=5609.423mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R2-2(37.473mm,7.899mm) on Top Layer And Track (36.993mm,7.525mm)(38.143mm,7.525mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2787.537mil|Location2.X=2789.849mil|Location1.Y=5611.455mil|Location2.Y=5613.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2787.537mil|Location2.X=2789.849mil|Location1.Y=5611.455mil|Location2.Y=5613.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R29-2(3.454mm,8.033mm) on Top Layer And Track (1.607mm,7.636mm)(3.057mm,7.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.151mil|Location2.X=2826.463mil|Location1.Y=5611.455mil|Location2.Y=5613.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.151mil|Location2.X=2826.463mil|Location1.Y=5611.455mil|Location2.Y=5613.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R29-2(3.454mm,8.033mm) on Top Layer And Track (2.724mm,7.636mm)(4.174mm,7.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.19mil|Location2.X=2792.502mil|Location1.Y=5609.993mil|Location2.Y=5612.306mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.19mil|Location2.X=2792.502mil|Location1.Y=5609.993mil|Location2.Y=5612.306mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R29-2(3.454mm,8.033mm) on Top Layer And Track (3.057mm,6.396mm)(3.057mm,7.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2780.151mil|Location2.X=2782.463mil|Location1.Y=5611.455mil|Location2.Y=5613.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2780.151mil|Location2.X=2782.463mil|Location1.Y=5611.455mil|Location2.Y=5613.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R30-2(2.337mm,8.033mm) on Top Layer And Track (1.607mm,7.636mm)(3.057mm,7.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.104mil|Location2.X=2779.416mil|Location1.Y=5609.993mil|Location2.Y=5612.306mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.104mil|Location2.X=2779.416mil|Location1.Y=5609.993mil|Location2.Y=5612.306mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R30-2(2.337mm,8.033mm) on Top Layer And Track (2.724mm,6.396mm)(2.724mm,7.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.104mil|Location2.X=2779.416mil|Location1.Y=5611.455mil|Location2.Y=5613.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2777.104mil|Location2.X=2779.416mil|Location1.Y=5611.455mil|Location2.Y=5613.767mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R30-2(2.337mm,8.033mm) on Top Layer And Track (2.724mm,7.636mm)(4.174mm,7.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3686.537mil|Location2.X=3688.849mil|Location1.Y=5311.844mil|Location2.Y=5314.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3686.537mil|Location2.X=3688.849mil|Location1.Y=5311.844mil|Location2.Y=5314.156mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.05mm) Between Pad R9-1(26.289mm,0.211mm) on Top Layer And Track (0mm,0.025mm)(37.389mm,0.025mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
