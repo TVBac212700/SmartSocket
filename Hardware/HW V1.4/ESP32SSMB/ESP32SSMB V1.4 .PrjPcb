@@ -89,7 +89,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=1
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -106,7 +106,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=2
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -123,7 +123,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=3
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -140,7 +140,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=4
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -157,7 +157,7 @@ AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=5
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -166,6 +166,40 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HUNQAFIL
+
+[Document8]
+DocumentPath=Gerber HW V1.4.Cam
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document9]
+DocumentPath=Drill HW V1.4.Cam
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\comp_+_bot\components
@@ -184,58 +218,122 @@ DocumentPath=Project Outputs for ESP32SSMB V1.4\Design Rule Check - ESP32SSMB V1
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .REP
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 -RoundHoles.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\bottom_layer\features
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 -SlotHoles.TXT
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\comp_+_bot\features
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .DRR
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\comp_+_top\features
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\dielectric_1\features
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GBL
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_non-plated_bottom-top\features
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GBO
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_plated_bottom-top\features
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GBP
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\top_layer\features
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GBS
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\matrix\matrix
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GD1
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\netlists\cadnet\netlist
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GG1
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\profile
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GM
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\stephdr
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GTL
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_non-plated_bottom-top\tools
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GTO
 DItemRevisionGUID=
 
 [GeneratedDocument18]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GTP
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .GTS
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .LDP
+DItemRevisionGUID=
+
+[GeneratedDocument21]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\ESP32SSMB V1.4 .REP
+DItemRevisionGUID=
+
+[GeneratedDocument22]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\bottom_layer\features
+DItemRevisionGUID=
+
+[GeneratedDocument23]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\comp_+_bot\features
+DItemRevisionGUID=
+
+[GeneratedDocument24]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\comp_+_top\features
+DItemRevisionGUID=
+
+[GeneratedDocument25]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\dielectric_1\features
+DItemRevisionGUID=
+
+[GeneratedDocument26]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_non-plated_bottom-top\features
+DItemRevisionGUID=
+
+[GeneratedDocument27]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_plated_bottom-top\features
+DItemRevisionGUID=
+
+[GeneratedDocument28]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\top_layer\features
+DItemRevisionGUID=
+
+[GeneratedDocument29]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\matrix\matrix
+DItemRevisionGUID=
+
+[GeneratedDocument30]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\netlists\cadnet\netlist
+DItemRevisionGUID=
+
+[GeneratedDocument31]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\profile
+DItemRevisionGUID=
+
+[GeneratedDocument32]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\stephdr
+DItemRevisionGUID=
+
+[GeneratedDocument33]
+DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_non-plated_bottom-top\tools
+DItemRevisionGUID=
+
+[GeneratedDocument34]
 DocumentPath=Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_plated_bottom-top\tools
 DItemRevisionGUID=
 
@@ -525,6 +623,10 @@ OutputName1=NC Drill Files
 OutputDocumentPath1=
 OutputVariantName1=
 OutputDefault1=0
+Configuration1_Name1=ForceUpdateSettings
+Configuration1_Item1=False
+Configuration1_Name2=OutputConfigurationParameter1
+Configuration1_Item2=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|GenerateSeparateViaTypeFiles=False|GenerateToolsByDrillSymbols=False|NumberOfDecimals=3|NumberOfUnits=4|OptimizeChangeLocationCommands=True|OriginPosition=Absolute|Record=DrillView|Units=Metric|ZeroesMode=SuppressTrailingZeroes|DocumentPath=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc
 OutputType2=Mask
 OutputName2=Solder/Paste Mask Prints
 OutputDocumentPath2=
@@ -590,6 +692,10 @@ OutputName12=Gerber Files
 OutputDocumentPath12=
 OutputVariantName12=[No Variations]
 OutputDefault12=0
+Configuration12_Name1=ForceUpdateSettings
+Configuration12_Item1=False
+Configuration12_Name2=OutputConfigurationParameter1
+Configuration12_Item2=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|BoardID=YLCODEJD|CentrePlots=False|DrillDrawingSymbol=GraphicsSymbol|DrillDrawingSymbolSize=500000|EmbeddedApertures=True|FilmBorderSize=10000000|FilmXSize=200000000|FilmYSize=160000000|FlashAllFills=False|FlashPadShapes=True|G54OnApertureChange=False|GenerateDRCRulesFile=False|GenerateDRCRulesFile=False|GenerateReliefShapes=True|GenerateReports=True|GerberUnit=Metric|GerberUnit=Metric|IncludeUnconnectedMidLayerPads=True|LayerClassesMirror.Set= |LayerClassesPlot.Set= |LeadingAndTrailingZeroesMode=SuppressTrailingZeroes|MaxApertureSize=2500000|MergePadAndRegion=False|MinusApertureTolerance=50|MinusApertureTolerance=50|Mirror.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|MirrorDrillDrawingPlots=False|MirrorDrillGuidePlots=False|NoRegularPolygons=False|NumberOfDecimals=4|NumberOfDecimals=4|OptimizeChangeLocationCommands=True|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Panelize=False|Plot.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray,16777217~1,16842751~1,16973830~1,16973831~1,16973834~1,16973835~1,16973832~1,16973833~1|PlotBoardProfile=True|PlotBoardProfileFileName=ESP32SSMB V1.4 .GM|PlotDrillDrawingLayerPair0_Backdrill=False|PlotDrillDrawingLayerPair0_Checked=True|PlotDrillDrawingLayerPair0_DrillType=Regular|PlotDrillDrawingLayerPair0_FileName=ESP32SSMB V1.4 .GD1|PlotDrillDrawingLayerPair0_HighLayer=Bottom Layer|PlotDrillDrawingLayerPair0_LowLayer=Top Layer|PlotDrillGuideLayerPair0_Backdrill=False|PlotDrillGuideLayerPair0_Checked=True|PlotDrillGuideLayerPair0_DrillType=Regular|PlotDrillGuideLayerPair0_FileName=ESP32SSMB V1.4 .GG1|PlotDrillGuideLayerPair0_HighLayer=Bottom Layer|PlotDrillGuideLayerPair0_LowLayer=Top Layer|PlotPositivePlaneLayers=False|PlotUsedDrillDrawingLayerPairs=False|PlotUsedDrillGuideLayerPairs=False|PlusApertureTolerance=50|PlusApertureTolerance=50|Record=GerberView|SoftwareArcs=False|Sorted=False|Sorted=False|UserLayerName.Caption0=ESP32SSMB V1.4 .GBO|UserLayerName.Caption1=ESP32SSMB V1.4 .GTP|UserLayerName.Caption10=ESP32SSMB V1.4 .GBL|UserLayerName.Caption11=ESP32SSMB V1.4 .GM29|UserLayerName.Caption12=ESP32SSMB V1.4 .GM15|UserLayerName.Caption13=ESP32SSMB V1.4 .GTL|UserLayerName.Caption14=ESP32SSMB V1.4 .GBP|UserLayerName.Caption2=ESP32SSMB V1.4 .GTO|UserLayerName.Caption3=ESP32SSMB V1.4 .GTS|UserLayerName.Caption4=ESP32SSMB V1.4 .GM13|UserLayerName.Caption5=ESP32SSMB V1.4 .GKO|UserLayerName.Caption6=ESP32SSMB V1.4 .GPT|UserLayerName.Caption7=ESP32SSMB V1.4 .GPB|UserLayerName.Caption8=ESP32SSMB V1.4 .GBS|UserLayerName.Caption9=ESP32SSMB V1.4 .GM1|UserLayerName.Count=15|UserLayerName.Layer0=16973831|UserLayerName.Layer1=16973832|UserLayerName.Layer10=16842751|UserLayerName.Layer11=16908317|UserLayerName.Layer12=16908303|UserLayerName.Layer13=16777217|UserLayerName.Layer14=16973833|UserLayerName.Layer2=16973830|UserLayerName.Layer3=16973834|UserLayerName.Layer4=16908301|UserLayerName.Layer5=16973837|UserLayerName.Layer6=16973848|UserLayerName.Layer7=16973849|UserLayerName.Layer8=16973835|UserLayerName.Layer9=16908289|DocumentPath=D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc
 
 [OutputGroup6]
 Name=Report Outputs

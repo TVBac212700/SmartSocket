@@ -1,26 +1,13 @@
-Output: ODB++ Files
-Type  : ODB
-From  : Variant [[No Variations]] of Project [ESP32SSMB V1.4 .PrjPcb]
-   Generated File[profile]
-   Generated File[stephdr]
-   Generated File[features]
-   Generated File[features]
-   Generated File[tools]
-   Generated File[features]
-   Generated File[tools]
-   Generated File[features]
-   Generated File[features]
-   Generated File[features]
-   Generated File[components]
-   Generated File[features]
-   Generated File[components]
-   Generated File[data]
-   Generated File[netlist]
-   Generated File[matrix]
-   Generated File[ESP32SSMB V1.4 .REP]
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [ESP32SSMB V1.4 .PrjPcb]
+   Generated File[ESP32SSMB V1.4 -RoundHoles.TXT]
+   Generated File[ESP32SSMB V1.4 -SlotHoles.TXT]
+   Generated File[ESP32SSMB V1.4 .LDP]
+   Generated File[ESP32SSMB V1.4 .DRR]
 
 
-Files Generated   : 17
+Files Generated   : 4
 Documents Printed : 0
 
-Finished Output Generation At 8:48:26 AM On 4/3/2025
+Finished Output Generation At 9:49:06 PM On 4/14/2025

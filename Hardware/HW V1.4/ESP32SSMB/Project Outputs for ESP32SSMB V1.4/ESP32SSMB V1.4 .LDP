@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=esp32ssmb v1.4 -roundholes.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=esp32ssmb v1.4 -slotholes.txt|DrillLayers=gtl,gbl

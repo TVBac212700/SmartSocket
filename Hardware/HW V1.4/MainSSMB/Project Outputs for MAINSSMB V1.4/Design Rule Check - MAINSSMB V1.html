@@ -1,0 +1,487 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD23\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">4/14/2025</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">9:30:06 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc" class="file"><acronym title="D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc">D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">53</td></tr>
+</table>
+</td>
+</table><a name="ID01HAJUTDLZGBGGYHIEZQABSEFND3KGT1MLANVXBVXEKPFWKDLCGM"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVZ5S5MJEDP0YN3XGMHBYK1KA4IU2EQEIE13SF3EQUGZU5C4FBCCG">Clearance Constraint (Gap=0.127mm) (All),(All)</a></td>
+<td class="column2">53</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDQL4MJBLFJCDHN1B4UMYT4NYUDNNITG4LSRGAVPNZY0B3CSSP2ND">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCGS2JE0TH4V3PAACRPGIBDRJJFSUEWW2R1SF2NPW2J1WPPAOS3M">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDK01VVOHIXLXQEFCD3EBFCROC0JRD2A12KTX4L4P5FPUNAPYILSTO">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTUO51V1E3KNNOL45GRF4SKEPXPOHF3EYX4USQNCLK33RZ0NXMUAI">Width Constraint (Min=0.2mm) (Max=5mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUXUEOSTFF2TCBA22BFBTGXDMPD51VZOGMXUTDNMDX44FKFJMNL0E">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIFZIIKVFX10INVS3PRIHIBN3H1RQ2J0ZOXCIXCUDKCA4JCW12W">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIUYPMIR3200WPFG24FZ21TIWBMOOQTRIKLI5ZEKHLYOZIJC4OF0P">Hole To Hole Clearance (Gap=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFA2NZKZTUC2KP0D3MY2AGUSZECO2SMHQVTFUYPNOVF2BJGOJLOIM">Minimum Solder Mask Sliver (Gap=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMTQ2ENAJPRBLOP0WBMPZU1GP1JINRQ5FGGBHNOP0JSLSSZYDOIKC">Silk To Solder Mask (Clearance=0mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVTZF4DZCOFLRCK0ME24SR4VMDGM3EI5EUTA3SVJKK0O4HYKMNKPP">Silk to Silk (Clearance=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZIUFVVYDFOXGBBVRVT1V54O1XKJTXNDVX4HXJJJ144Z5Z5TC1L5H">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJZ5RNYDAZGHVEZ0QPHGOYC44GDI0TOGIWBXRI2OBRQSRAOMGBQBC">Height Constraint (Min=0mm) (Max=50mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">53</td>
+</tr>
+</table><br><a name="IDVZ5S5MJEDP0YN3XGMHBYK1KA4IU2EQEIE13SF3EQUGZU5C4FBCCG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.127mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2034.516mil|Location2.X=2043.739mil|Location1.Y=2592.646mil|Location2.Y=2600.11mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2034.516mil|Location2.X=2043.739mil|Location1.Y=2592.646mil|Location2.Y=2600.11mil|Absolute=True">Clearance Constraint: (0.082mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad C1-1(36.699mm,49.251mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=636.028mil|Location2.X=644.204mil|Location1.Y=2507.109mil|Location2.Y=2515.357mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=636.028mil|Location2.X=644.204mil|Location1.Y=2507.109mil|Location2.Y=2515.357mil|Absolute=True">Clearance Constraint: (0.082mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad D1-AC1(1.074mm,47.369mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1230.615mil|Location2.X=1236.865mil|Location1.Y=2635.875mil|Location2.Y=2642.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1230.615mil|Location2.X=1236.865mil|Location1.Y=2635.875mil|Location2.Y=2642.125mil|Absolute=True">Clearance Constraint: (0.115mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad F1-1(15.773mm,49.86mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1758.836mil|Location2.X=1765.086mil|Location1.Y=1861.225mil|Location2.Y=1867.475mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1758.836mil|Location2.X=1765.086mil|Location1.Y=1861.225mil|Location2.Y=1867.475mil|Absolute=True">Clearance Constraint: (0.084mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad J3-2(30.073mm,28.142mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1823.206mil|Location2.X=1829.456mil|Location1.Y=1975.875mil|Location2.Y=1982.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1823.206mil|Location2.X=1829.456mil|Location1.Y=1975.875mil|Location2.Y=1982.125mil|Absolute=True">Clearance Constraint: (0.118mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad K1-COM(32.817mm,33.096mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2209.044mil|Location2.X=2215.294mil|Location1.Y=1975.875mil|Location2.Y=1982.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2209.044mil|Location2.X=2215.294mil|Location1.Y=1975.875mil|Location2.Y=1982.125mil|Absolute=True">Clearance Constraint: (0.042mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad K1-NO(40.437mm,33.096mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2135.796mil|Location2.X=2143.758mil|Location1.Y=1944.535mil|Location2.Y=1952.988mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2135.796mil|Location2.X=2143.758mil|Location1.Y=1944.535mil|Location2.Y=1952.988mil|Absolute=True">Clearance Constraint: (0.064mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad K1-NO(40.437mm,33.096mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1360.117mil|Location2.X=1371.008mil|Location1.Y=2315.228mil|Location2.Y=2322.526mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1360.117mil|Location2.X=1371.008mil|Location1.Y=2315.228mil|Location2.Y=2322.526mil|Absolute=True">Clearance Constraint: (0.035mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad K2-A2(20.32mm,40.716mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2009.403mil|Location2.X=2018.625mil|Location1.Y=2574.199mil|Location2.Y=2581.663mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2009.403mil|Location2.X=2018.625mil|Location1.Y=2574.199mil|Location2.Y=2581.663mil|Absolute=True">Clearance Constraint: (0.117mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad R1-1(35.836mm,49.225mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1859.667mil|Location2.X=1865.917mil|Location1.Y=2783.835mil|Location2.Y=2790.085mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1859.667mil|Location2.X=1865.917mil|Location1.Y=2783.835mil|Location2.Y=2790.085mil|Absolute=True">Clearance Constraint: (0.011mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad T1-6(31.728mm,53.618mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1886.945mil|Location2.X=1893.195mil|Location1.Y=2783.835mil|Location2.Y=2790.085mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1886.945mil|Location2.X=1893.195mil|Location1.Y=2783.835mil|Location2.Y=2790.085mil|Absolute=True">Clearance Constraint: (0.004mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Pad T1-7(34.228mm,53.618mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=615.06mil|Location2.X=621.31mil|Location1.Y=2448.547mil|Location2.Y=2454.797mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=615.06mil|Location2.X=621.31mil|Location1.Y=2448.547mil|Location2.Y=2454.797mil|Absolute=True">Clearance Constraint: (0.041mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (0.6mm,2.387mm)(0.6mm,62.281mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=668.741mil|Location2.X=676.918mil|Location1.Y=2491.877mil|Location2.Y=2500.124mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=668.741mil|Location2.X=676.918mil|Location1.Y=2491.877mil|Location2.Y=2500.124mil|Absolute=True">Clearance Constraint: (0.031mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (0.6mm,43.831mm)(2.678mm,45.909mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1105.875mil|Location2.X=1112.125mil|Location1.Y=1946.407mil|Location2.Y=1952.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1105.875mil|Location2.X=1112.125mil|Location1.Y=1946.407mil|Location2.Y=1952.657mil|Absolute=True">Clearance Constraint: (0.078mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (12.954mm,33.02mm)(13.487mm,32.487mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1212.875mil|Location2.X=1219.125mil|Location1.Y=1946.407mil|Location2.Y=1952.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1212.875mil|Location2.X=1219.125mil|Location1.Y=1946.407mil|Location2.Y=1952.657mil|Absolute=True">Clearance Constraint: (0.078mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (13.487mm,32.487mm)(17.653mm,32.487mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1363.562mil|Location2.X=1371.739mil|Location1.Y=2402.188mil|Location2.Y=2410.435mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1363.562mil|Location2.X=1371.739mil|Location1.Y=2402.188mil|Location2.Y=2410.435mil|Absolute=True">Clearance Constraint: (0.094mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (18.736mm,44.109mm)(19.636mm,45.009mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1679.875mil|Location2.X=1686.125mil|Location1.Y=2403.19mil|Location2.Y=2409.44mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1679.875mil|Location2.X=1686.125mil|Location1.Y=2403.19mil|Location2.Y=2409.44mil|Absolute=True">Clearance Constraint: (0.118mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (19.636mm,45.009mm)(28.524mm,45.009mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=668.741mil|Location2.X=676.918mil|Location1.Y=2491.877mil|Location2.Y=2500.124mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=668.741mil|Location2.X=676.918mil|Location1.Y=2491.877mil|Location2.Y=2500.124mil|Absolute=True">Clearance Constraint: (0.031mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (2.678mm,45.909mm)(3.574mm,45.909mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2208.06mil|Location2.X=2214.31mil|Location1.Y=1975.875mil|Location2.Y=1982.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2208.06mil|Location2.X=2214.31mil|Location1.Y=1975.875mil|Location2.Y=1982.125mil|Absolute=True">Clearance Constraint: (0.092mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (28.524mm,45.009mm)(40.437mm,33.096mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2136.456mil|Location2.X=2144.703mil|Location1.Y=1945.529mil|Location2.Y=1953.706mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2136.456mil|Location2.X=2144.703mil|Location1.Y=1945.529mil|Location2.Y=1953.706mil|Absolute=True">Clearance Constraint: (0.114mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (28.524mm,45.009mm)(40.437mm,33.096mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1758.835mil|Location2.X=1765.085mil|Location1.Y=1861.225mil|Location2.Y=1867.475mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1758.835mil|Location2.X=1765.085mil|Location1.Y=1861.225mil|Location2.Y=1867.475mil|Absolute=True">Clearance Constraint: (0.084mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (30.073mm,12.142mm)(30.073mm,28.142mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1888.267mil|Location2.X=1896.444mil|Location1.Y=2726.483mil|Location2.Y=2734.73mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1888.267mil|Location2.X=1896.444mil|Location1.Y=2726.483mil|Location2.Y=2734.73mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (33.394mm,51.559mm)(34.037mm,52.202mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=807.915mil|Location2.X=816.092mil|Location1.Y=2685.835mil|Location2.Y=2694.082mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=807.915mil|Location2.X=816.092mil|Location1.Y=2685.835mil|Location2.Y=2694.082mil|Absolute=True">Clearance Constraint: (0.075mm &lt; 0.127mm) Between Board Cutout (Multi-Layer)Region (0 hole(s)) Multi-Layer And Track (5.174mm,49.624mm)(7.317mm,51.767mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=582.505mil|Location2.X=588.755mil|Location1.Y=3220.08mil|Location2.Y=3226.33mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=582.505mil|Location2.X=588.755mil|Location1.Y=3220.08mil|Location2.Y=3226.33mil|Absolute=True">Clearance Constraint: (0.086mm &lt; 0.127mm) Between Pad IC1-4(1.167mm,66.294mm) on Bottom Layer And Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=582.662mil|Location2.X=588.912mil|Location1.Y=3126.639mil|Location2.Y=3132.889mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=582.662mil|Location2.X=588.912mil|Location1.Y=3126.639mil|Location2.Y=3132.889mil|Absolute=True">Clearance Constraint: (0.094mm &lt; 0.127mm) Between Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer And Track (0.645mm,62.326mm)(3.454mm,62.326mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=766.866mil|Location2.Y=773.116mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=766.866mil|Location2.Y=773.116mil|Absolute=True">Clearance Constraint: (0.049mm &lt; 0.127mm) Between Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer And Track (0.6mm,2.387mm)(0.6mm,62.281mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=766.866mil|Location2.Y=773.116mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=766.866mil|Location2.Y=773.116mil|Absolute=True">Clearance Constraint: (0.049mm &lt; 0.127mm) Between Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer And Track (0.6mm,2.387mm)(1.928mm,1.059mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=2398.497mil|Location2.Y=2404.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=2398.497mil|Location2.Y=2404.747mil|Absolute=True">Clearance Constraint: (0.049mm &lt; 0.127mm) Between Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer And Track (0.6mm,43.831mm)(2.678mm,45.909mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=3124.875mil|Location2.Y=3131.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=3124.875mil|Location2.Y=3131.125mil|Absolute=True">Clearance Constraint: (0.049mm &lt; 0.127mm) Between Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer And Track (0.6mm,62.281mm)(0.645mm,62.326mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=3124.875mil|Location2.Y=3131.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=3124.875mil|Location2.Y=3131.125mil|Absolute=True">Clearance Constraint: (0.049mm &lt; 0.127mm) Between Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer And Track (0.6mm,62.281mm)(0.6mm,66.294mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=968.253mil|Location2.Y=974.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=968.253mil|Location2.Y=974.503mil|Absolute=True">Clearance Constraint: (0.049mm &lt; 0.127mm) Between Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer And Track (0.6mm,7.503mm)(0.6mm,43.831mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=968.253mil|Location2.Y=974.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=968.253mil|Location2.Y=974.503mil|Absolute=True">Clearance Constraint: (0.049mm &lt; 0.127mm) Between Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer And Track (0.6mm,7.503mm)(2.032mm,6.071mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=3282.875mil|Location2.Y=3289.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=581.78mil|Location2.X=588.03mil|Location1.Y=3282.875mil|Location2.Y=3289.125mil|Absolute=True">Clearance Constraint: (0.049mm &lt; 0.127mm) Between Track (0.051mm,69.926mm)(0.051mm,0mm) on Keep-Out Layer And Via (0.6mm,66.294mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.781mil|Location2.X=1097.031mil|Location1.Y=2083.875mil|Location2.Y=2090.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.781mil|Location2.X=1097.031mil|Location1.Y=2083.875mil|Location2.Y=2090.125mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (12.554mm,36.239mm)(12.954mm,35.839mm) on Bottom Layer And Track (13.254mm,33.195mm)(13.254mm,35.86mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.78mil|Location2.X=1097.03mil|Location1.Y=2084.28mil|Location2.Y=2090.53mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.78mil|Location2.X=1097.03mil|Location1.Y=2084.28mil|Location2.Y=2090.53mil|Absolute=True">Clearance Constraint: (0.101mm &lt; 0.127mm) Between Track (12.554mm,36.239mm)(12.954mm,35.839mm) on Bottom Layer And Track (13.254mm,35.86mm)(13.665mm,36.271mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.781mil|Location2.X=1097.031mil|Location1.Y=1979.767mil|Location2.Y=1986.017mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.781mil|Location2.X=1097.031mil|Location1.Y=1979.767mil|Location2.Y=1986.017mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (12.954mm,33.02mm)(12.954mm,35.839mm) on Bottom Layer And Track (13.254mm,33.195mm)(13.254mm,35.86mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.781mil|Location2.X=1097.031mil|Location1.Y=1979.767mil|Location2.Y=1986.017mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.781mil|Location2.X=1097.031mil|Location1.Y=1979.767mil|Location2.Y=1986.017mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (12.954mm,33.02mm)(12.954mm,35.839mm) on Bottom Layer And Track (13.254mm,33.195mm)(13.632mm,32.817mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.78mil|Location2.X=1097.03mil|Location1.Y=2084.28mil|Location2.Y=2090.53mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1090.78mil|Location2.X=1097.03mil|Location1.Y=2084.28mil|Location2.Y=2090.53mil|Absolute=True">Clearance Constraint: (0.101mm &lt; 0.127mm) Between Track (12.954mm,33.02mm)(12.954mm,35.839mm) on Bottom Layer And Track (13.254mm,35.86mm)(13.665mm,36.271mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1274.051mil|Location2.X=1282.298mil|Location1.Y=1954.124mil|Location2.Y=1962.301mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1274.051mil|Location2.X=1282.298mil|Location1.Y=1954.124mil|Location2.Y=1962.301mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (13.487mm,32.487mm)(17.653mm,32.487mm) on Bottom Layer And Track (17.747mm,32.817mm)(21.837mm,28.727mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1274.051mil|Location2.X=1282.298mil|Location1.Y=1954.124mil|Location2.Y=1962.301mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1274.051mil|Location2.X=1282.298mil|Location1.Y=1954.124mil|Location2.Y=1962.301mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (17.653mm,32.487mm)(21.537mm,28.603mm) on Bottom Layer And Track (17.747mm,32.817mm)(21.837mm,28.727mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.677mil|Location2.X=1434.927mil|Location1.Y=1798.978mil|Location2.Y=1805.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.677mil|Location2.X=1434.927mil|Location1.Y=1798.978mil|Location2.Y=1805.228mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (17.653mm,32.487mm)(21.537mm,28.603mm) on Bottom Layer And Track (21.837mm,7.518mm)(21.837mm,28.727mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1426.947mil|Location2.X=1435.194mil|Location1.Y=1801.228mil|Location2.Y=1809.404mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1426.947mil|Location2.X=1435.194mil|Location1.Y=1801.228mil|Location2.Y=1809.404mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (17.747mm,32.817mm)(21.837mm,28.727mm) on Bottom Layer And Track (21.537mm,7.394mm)(21.537mm,28.603mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.677mil|Location2.X=1434.927mil|Location1.Y=1798.978mil|Location2.Y=1805.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.677mil|Location2.X=1434.927mil|Location1.Y=1798.978mil|Location2.Y=1805.228mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (21.537mm,7.394mm)(21.537mm,28.603mm) on Bottom Layer And Track (21.837mm,7.518mm)(21.837mm,28.727mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.677mil|Location2.X=1434.927mil|Location1.Y=968.875mil|Location2.Y=975.125mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1428.677mil|Location2.X=1434.927mil|Location1.Y=968.875mil|Location2.Y=975.125mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (21.537mm,7.394mm)(21.537mm,28.603mm) on Bottom Layer And Track (21.837mm,7.518mm)(21.954mm,7.401mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1430.407mil|Location2.X=1438.654mil|Location1.Y=962.773mil|Location2.Y=970.949mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1430.407mil|Location2.X=1438.654mil|Location1.Y=962.773mil|Location2.Y=970.949mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (21.537mm,7.394mm)(21.829mm,7.101mm) on Bottom Layer And Track (21.837mm,7.518mm)(21.837mm,28.727mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1430.407mil|Location2.X=1438.654mil|Location1.Y=962.773mil|Location2.Y=970.949mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1430.407mil|Location2.X=1438.654mil|Location1.Y=962.773mil|Location2.Y=970.949mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (21.537mm,7.394mm)(21.829mm,7.101mm) on Bottom Layer And Track (21.837mm,7.518mm)(21.954mm,7.401mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1435.019mil|Location2.X=1443.266mil|Location1.Y=958.16mil|Location2.Y=966.337mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1435.019mil|Location2.X=1443.266mil|Location1.Y=958.16mil|Location2.Y=966.337mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (21.537mm,7.394mm)(21.829mm,7.101mm) on Bottom Layer And Track (21.954mm,7.401mm)(33.899mm,7.401mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1439.195mil|Location2.X=1445.445mil|Location1.Y=958.357mil|Location2.Y=964.607mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1439.195mil|Location2.X=1445.445mil|Location1.Y=958.357mil|Location2.Y=964.607mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (21.829mm,7.101mm)(31.596mm,7.101mm) on Bottom Layer And Track (21.837mm,7.518mm)(21.954mm,7.401mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1818.795mil|Location2.X=1825.045mil|Location1.Y=958.357mil|Location2.Y=964.607mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1818.795mil|Location2.X=1825.045mil|Location1.Y=958.357mil|Location2.Y=964.607mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (21.829mm,7.101mm)(31.596mm,7.101mm) on Bottom Layer And Track (21.954mm,7.401mm)(33.899mm,7.401mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1818.795mil|Location2.X=1825.045mil|Location1.Y=958.357mil|Location2.Y=964.607mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1818.795mil|Location2.X=1825.045mil|Location1.Y=958.357mil|Location2.Y=964.607mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (21.954mm,7.401mm)(33.899mm,7.401mm) on Bottom Layer And Track (31.596mm,7.101mm)(31.826mm,6.871mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2308.969mil|Location2.X=2315.219mil|Location1.Y=2947.497mil|Location2.Y=2953.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2308.969mil|Location2.X=2315.219mil|Location1.Y=2947.497mil|Location2.Y=2953.747mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (41.021mm,60.35mm)(43.596mm,57.775mm) on Top Layer And Track (44.196mm,0mm)(44.196mm,69.926mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2308.969mil|Location2.X=2315.219mil|Location1.Y=1484.253mil|Location2.Y=1490.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2308.969mil|Location2.X=2315.219mil|Location1.Y=1484.253mil|Location2.Y=1490.503mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (42.875mm,19.888mm)(43.596mm,20.609mm) on Top Layer And Track (44.196mm,0mm)(44.196mm,69.926mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2308.969mil|Location2.X=2315.219mil|Location1.Y=1484.253mil|Location2.Y=1490.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\File\Project\SmartSocket\Hardware\HW V1.4\MainSSMB\MAINSSMB V1.4 .PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2308.969mil|Location2.X=2315.219mil|Location1.Y=1484.253mil|Location2.Y=1490.503mil|Absolute=True">Clearance Constraint: (0.1mm &lt; 0.127mm) Between Track (43.596mm,20.609mm)(43.596mm,57.775mm) on Top Layer And Track (44.196mm,0mm)(44.196mm,69.926mm) on Keep-Out Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
