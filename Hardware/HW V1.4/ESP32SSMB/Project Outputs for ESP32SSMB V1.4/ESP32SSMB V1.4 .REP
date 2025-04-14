@@ -1,235 +1,46 @@
 *************************************************************
-FileName = ESP32SSMB V1.4 .GBR
-AutoAperture = True
+FileName = ESP32SSMB V1.4 .PcbDoc
+ODB++ directory structure
 *************************************************************
-Generating : Bottom Paste
-      File : ESP32SSMB V1.4 .GBP
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\profile
 
-    Adding Layer      : Bottom Paste
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\stephdr
 
-    Adding Layer      : Bottom Layer
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\attrlist
 
-    Adding Layer      : Multi-Layer
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\dielectric_1\features
 
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\dielectric_1\attrlist
 
-Used DCodes :
-    D27
-    D41
-    D42
-    D43
-    D44
-    D45
-*************************************************************
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_non-plated_bottom-top\features
 
-*************************************************************
-Generating : Top Paste
-      File : ESP32SSMB V1.4 .GTP
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_non-plated_bottom-top\attrlist
 
-    Adding Layer      : Top Paste
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_non-plated_bottom-top\tools
 
-    Adding Layer      : Top Layer
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_plated_bottom-top\features
 
-    Adding Layer      : Multi-Layer
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_plated_bottom-top\attrlist
 
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\drill_plated_bottom-top\tools
 
-Used DCodes :
-    D14
-    D15
-    D16
-    D17
-    D18
-    D19
-    D20
-    D21
-    D22
-    D23
-    D24
-    D25
-    D26
-    D27
-    D28
-    D29
-    D30
-*************************************************************
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\top_layer\features
 
-*************************************************************
-Generating : Bottom Solder
-      File : ESP32SSMB V1.4 .GBS
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\top_layer\attrlist
 
-    Adding Layer      : Bottom Solder
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\bottom_layer\features
 
-    Adding Layer      : Bottom Layer
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\bottom_layer\attrlist
 
-    Adding Layer      : Multi-Layer
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\comp_+_bot\features
 
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\comp_+_bot\components
 
-Used DCodes :
-    D27
-    D33
-    D34
-    D35
-    D43
-    D44
-    D45
-    D46
-    D47
-*************************************************************
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\comp_+_top\features
 
-*************************************************************
-Generating : Top Solder
-      File : ESP32SSMB V1.4 .GTS
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\layers\comp_+_top\components
 
-    Adding Layer      : Top Solder
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\steps\pcb\eda\data
 
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D14
-    D15
-    D16
-    D17
-    D18
-    D19
-    D20
-    D21
-    D22
-    D23
-    D24
-    D25
-    D27
-    D28
-    D29
-    D31
-    D32
-    D33
-    D34
-    D35
-*************************************************************
-
-*************************************************************
-Generating : Bottom Overlay
-      File : ESP32SSMB V1.4 .GBO
-
-    Adding Layer      : Bottom Overlay
-
-
-Used DCodes :
-    D10
-    D11
-    D12
-    D36
-    D48
-*************************************************************
-
-*************************************************************
-Generating : Top Overlay
-      File : ESP32SSMB V1.4 .GTO
-
-    Adding Layer      : Top Overlay
-
-
-Used DCodes :
-    D10
-    D11
-    D12
-    D13
-*************************************************************
-
-*************************************************************
-Generating : Bottom Layer
-      File : ESP32SSMB V1.4 .GBL
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D27
-    D35
-    D36
-    D38
-    D39
-    D40
-    D41
-    D42
-    D43
-    D44
-    D45
-*************************************************************
-
-*************************************************************
-Generating : Top Layer
-      File : ESP32SSMB V1.4 .GTL
-
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D10
-    D14
-    D15
-    D16
-    D17
-    D18
-    D19
-    D20
-    D21
-    D22
-    D23
-    D24
-    D25
-    D26
-    D27
-    D28
-    D29
-    D30
-    D35
-    D36
-    D37
-    D38
-    D39
-    D40
-*************************************************************
-
-*************************************************************
-Generating : Drill Drawing
-      File : ESP32SSMB V1.4 .GD1
-
-    Adding Drill Pair : Top Layer-Bottom Layer
-
-    Adding Layer      : Drill Drawing
-
-
-Used DCodes :
-    D12
-    D49
-*************************************************************
-
-*************************************************************
-Generating : Drill Guide
-      File : ESP32SSMB V1.4 .GG1
-
-    Adding Drill Pair : Top Layer-Bottom Layer
-
-    Adding Layer      : Drill Guide
-
-
-Used DCodes :
-    D12
-*************************************************************
-
-*************************************************************
-Generating : Profile
-      File : ESP32SSMB V1.4 .GM
-
-
-Used DCodes :
-    D50
-*************************************************************
+Generated File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\Project Outputs for ESP32SSMB V1.4\odb\matrix\matrix
 
