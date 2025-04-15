@@ -1,9 +1,9 @@
 Protel Design System Design Rule Check
 PCB File : D:\File\Project\SmartSocket\Hardware\HW V1.4\ESP32SSMB\ESP32SSMB V1.4 .PcbDoc
-Date     : 4/14/2025
-Time     : 4:40:55 PM
+Date     : 4/15/2025
+Time     : 11:04:25 PM
 
-Processing Rule : Clearance Constraint (Gap=0.1mm) (All),(All)
+Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Clearance Constraint (Gap=0.1mm) (InNetClass('POWER')),(All)

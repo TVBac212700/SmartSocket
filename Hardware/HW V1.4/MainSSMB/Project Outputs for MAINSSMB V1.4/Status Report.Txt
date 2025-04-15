@@ -1,28 +1,12 @@
-Output: ODB++ Files
-Type  : ODB
-From  : Variant [[No Variations]] of Project [MAINSSMB V1.4 .PrjPcb]
-   Generated File[profile]
-   Generated File[stephdr]
-   Generated File[features]
-   Generated File[features]
-   Generated File[tools]
-   Generated File[features]
-   Generated File[tools]
-   Generated File[features]
-   Generated File[features]
-   Generated File[features]
-   Generated File[components]
-   Generated File[features]
-   Generated File[components]
-   Generated File[features]
-   Generated File[tools]
-   Generated File[data]
-   Generated File[netlist]
-   Generated File[matrix]
-   Generated File[MAINSSMB V1.4 .REP]
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [MAINSSMB V1.4 .PrjPcb]
+   Generated File[MAINSSMB V1.4 .TXT]
+   Generated File[MAINSSMB V1.4 .LDP]
+   Generated File[MAINSSMB V1.4 .DRR]
 
 
-Files Generated   : 19
+Files Generated   : 3
 Documents Printed : 0
 
-Finished Output Generation At 10:32:00 PM On 4/14/2025
+Finished Output Generation At 11:15:39 PM On 4/14/2025

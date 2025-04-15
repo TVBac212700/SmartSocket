@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: ESP32SSMB V1.4 .PcbDoc   4/14/2025  9:49:06 PM
+NCDrill File Report For: ESP32SSMB V1.4 .PcbDoc   4/14/2025  11:14:29 PM
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : Top Layer to Bottom Layer
@@ -8,10 +8,10 @@ ASCII SlotHoles File : ESP32SSMB V1.4 -SlotHoles.TXT
 
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
 ----------------------------------------------------------------------------------------------------------------------------------
-T1      0.3mm (12mil)                                             Round             389       PTH        590.45mm (23.25inch)
+T1      0.3mm (12mil)                                             Round             402       PTH        632.33mm (24.89inch)
 T2      0.6mm (24mil)                                             Slot              4         PTH        36.92mm (1.45inch)
 T3      0.7mm (28mil)                                             Round             2         NPTH       1.80mm (0.07inch)
 ----------------------------------------------------------------------------------------------------------------------------------
-Totals                                                                              395
+Totals                                                                              408
 
 Total Processing Time (hh:mm:ss) : 00:00:00
